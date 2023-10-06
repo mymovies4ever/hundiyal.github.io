@@ -35,6 +35,42 @@
             font-weight: bold;
             color: #ff9900;
         }
+        /* Add styles for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            animation: popupAnimation 1s ease-in-out;
+        }
+        @keyframes popupAnimation {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .symbol {
+                font-size: 36px;
+            }
+            .popup {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -44,8 +80,28 @@
     <main>
         <h2>Welcome to the Future of Digital Currency</h2>
         <p><span class="symbol">ü!</span> - Hundiyal Currency</p>
+        <!-- Include the governor's picture using an image URL -->
+        <img src="https://static.toiimg.com/photo/60474002/.jpg" alt="Governor Giridhar Tirupathi">
         <p>Current Governor: <span class="governor">Giridhar Tirupathi</span></p>
         <p>Today's Hundiyal Rate: 1 Hundiyal equals <span class="rate">1120 Indian Rupees</span></p>
     </main>
+    <!-- Popup content -->
+    <div class="popup" id="popup">
+        <p>PichiyGLow is LUB</p>
+    </div>
+    <script>
+        // JavaScript to show the popup on click or touch
+        const popup = document.getElementById("popup");
+
+        document.addEventListener("click", showPopup);
+        document.addEventListener("touchstart", showPopup);
+
+        function showPopup() {
+            popup.style.display = "block";
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 1000); // Hide the popup after 1 second
+        }
+    </script>
 </body>
 </html>
